@@ -1,8 +1,8 @@
 export class Haiku {
   constructor(line1, line2, line3) {
-    this.line1 = line1.split(" ");
-    this.line2 = line2.split(" ");
-    this.line3 = line3.split(" ");
+    this.line1 = line1.replace(/[.,#!$%&'?;:{}=\-_`~()]/g,"").toLowerCase().split(" ");
+    this.line2 = line2.replace(/[.,#!$%&'?;:{}=\-_`~()]/g,"").toLowerCase().split(" ");
+    this.line3 = line3.replace(/[.,#!$%&'?;:{}=\-_`~()]/g,"").toLowerCase().split(" ");
     this.myLetters = {
       y: "y",
       vowels: ["a", "e", "i", "o", "u"]
@@ -21,6 +21,18 @@ export class Haiku {
       }
     }
   }
+
+  endsWithE() {
+    for (let i = 0; i < this.line1.length; i++) {
+      // insert for non-silent trailing E edge case later
+      if (this.line1[i].endsWith("e")) {
+              this.countLine1--;
+      }
+    }
+  }
+
+
+
 // LET's GET WET!!!
   vowelCounter2() {
     for (let i = 0; i < this.line2.length; i++) {

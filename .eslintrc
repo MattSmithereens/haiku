@@ -11,10 +11,11 @@
     "jasmine": true
   },
   "rules": {
-      "semi": ["warn", 1],
+      "semi": 1,
       "indent": ["warn", 2],
       "no-console": "warn",
       "no-debugger": "warn",
-      "no-unused-vars": "warn"
+      "no-unused-vars": "warn",
+      "no-useless-escape": "warn"
   }
 }
