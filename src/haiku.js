@@ -8,28 +8,33 @@ export class Haiku {
       vowels: ["a", "e", "i", "o", "u"],
       dumbE: ["acme", "acne", "ante", "Boise", "maybe", "posse", "adobe", "apache", "karate", "peyote", "reveille", "sesame", "shoshone", "syncope", "vigilante"]
     }
+    this.counter = 0;
   }
 
   vowelCounter(line) {
-    let count = 0;
+    this.resetCounter();
     for (let i = 0; i < line.length; i++) {
       for (let j = 0; j < line[i].length; j++) {
         if (this.myLetters.vowels.includes(line[i][j])) {
-          count++;
+          this.counter++;
         }
       }
     }
-    return count;
+    return this.counter;
   }
 
-  endsWithE() {
-    for (let i = 0; i < this.line1.length; i++) {
-      if (this.line[i].equals(this.myLetters.dumbE)) {
-        this.countLine + 0;
-      }
-      else if (this.line1[i].endsWith("e")) {
-        this.countLine1--;
-      }
-    }
+  // endsWithE(line) {
+  //   for (let i = 0; i < line.length; i++) {
+  //     if (line[i].equals(this.myLetters.dumbE)) {
+  //       this.counter + 0;
+  //     }
+  //     else if (line[i].endsWith("e")) {
+  //       this.counter--;
+  //     }
+  //   }
+  // }
+
+  resetCounter() {
+    this.counter = 0;
   }
 }
