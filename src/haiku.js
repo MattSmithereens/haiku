@@ -6,13 +6,12 @@ export class Haiku {
     this.myLetters = {
       y: "y",
       vowels: ["a", "e", "i", "o", "u"],
-      dumbE: ["acme", "acne", "ante", "Boise", "maybe", "posse", "adobe", "apache", "karate", "peyote", "reveille", "sesame", "shoshone", "syncope", "vigilante"]
+      dumbE: ["acme", "acne", "ante", "Boise", "bebe", "catastrophe", "hyperbole", "maybe", "posse", "adobe", "apache", "karate", "peyote", "reveille", "sesame", "shoshone", "syncope", "vigilante"]
     }
     this.counter = 0;
   }
 
   vowelCounter(line) {
-    this.resetCounter(); // move later
     for (let i = 0; i < line.length; i++) {
       for (let j = 0; j < line[i].length; j++) {
         if (this.myLetters.vowels.includes(line[i][j])) {
@@ -20,7 +19,6 @@ export class Haiku {
         }
       }
     }
-    return this.counter;
   }
 
   endsWithE(line) {
@@ -30,6 +28,23 @@ export class Haiku {
       }
       else if (line[i].endsWith("e")) {
         this.counter--;
+      }
+    }
+  }
+
+  adjacentVowels(line) {
+    for (let i = 0; i < line.length; i++) {
+      for (let j = 0; j < line[i].length; ) {
+        if ((this.myLetters.vowels.includes(line[i][j])) && (this.myLetters.vowels.includes(line[i][j+1])) && (this.myLetters.vowels.includes(line[i][j+2]))) {
+          this.counter--;
+          j+=2;
+        }
+        else if ((this.myLetters.vowels.includes(line[i][j])) && (this.myLetters.vowels.includes(line[i][j+1]))) {
+          this.counter--;
+          j++;
+        } else {
+          j++;
+        }
       }
     }
   }
