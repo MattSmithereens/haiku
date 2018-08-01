@@ -5,54 +5,31 @@ export class Haiku {
     this.line3 = line3.replace(/[.,#!$%&'?;:{}=\-_`~()]/g,"").toLowerCase().split(" ");
     this.myLetters = {
       y: "y",
-      vowels: ["a", "e", "i", "o", "u"]
+      vowels: ["a", "e", "i", "o", "u"],
+      dumbE: ["acme", "acne", "ante", "Boise", "maybe", "posse", "adobe", "apache", "karate", "peyote", "reveille", "sesame", "shoshone", "syncope", "vigilante"]
     }
-    this.countLine1 = 0;
-    this.countLine2 = 0;
-    this.countLine3 = 0;
   }
 
-  vowelCounter1() {
-    for (let i = 0; i < this.line1.length; i++) {
-      for (let j = 0; j < this.line1[i].length; j++) {
-        if (this.myLetters.vowels.includes(this.line1[i][j])) {
-          this.countLine1++;
+  vowelCounter(line) {
+    let count = 0;
+    for (let i = 0; i < line.length; i++) {
+      for (let j = 0; j < line[i].length; j++) {
+        if (this.myLetters.vowels.includes(line[i][j])) {
+          count++;
         }
       }
     }
+    return count;
   }
 
   endsWithE() {
     for (let i = 0; i < this.line1.length; i++) {
-      // insert for non-silent trailing E edge case later
-      if (this.line1[i].endsWith("e")) {
-              this.countLine1--;
+      if (this.line[i].equals(this.myLetters.dumbE)) {
+        this.countLine + 0;
+      }
+      else if (this.line1[i].endsWith("e")) {
+        this.countLine1--;
       }
     }
   }
-
-
-
-// LET's GET WET!!!
-  vowelCounter2() {
-    for (let i = 0; i < this.line2.length; i++) {
-      for (let j = 0; j < this.line2[i].length; j++) {
-        if (this.myLetters.vowels.includes(this.line2[i][j])) {
-          this.countLine2++;
-        }
-      }
-    }
-  }
-
-  vowelCounter3() {
-    for (let i = 0; i < this.line3.length; i++) {
-      for (let j = 0; j < this.line3[i].length; j++) {
-        if (this.myLetters.vowels.includes(this.line3[i][j])) {
-          this.countLine3++;
-        }
-      }
-    }
-  }
-
-
 }
