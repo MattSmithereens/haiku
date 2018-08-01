@@ -11,7 +11,7 @@
     "jasmine": true
   },
   "rules": {
-      "semi": 1,
+      "semi": ["warn", 1],
       "indent": ["warn", 2],
       "no-console": "warn",
       "no-debugger": "warn",
