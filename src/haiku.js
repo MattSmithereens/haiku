@@ -12,7 +12,7 @@ export class Haiku {
   }
 
   vowelCounter(line) {
-    this.resetCounter();
+    this.resetCounter(); // move later
     for (let i = 0; i < line.length; i++) {
       for (let j = 0; j < line[i].length; j++) {
         if (this.myLetters.vowels.includes(line[i][j])) {
@@ -23,16 +23,16 @@ export class Haiku {
     return this.counter;
   }
 
-  // endsWithE(line) {
-  //   for (let i = 0; i < line.length; i++) {
-  //     if (line[i].equals(this.myLetters.dumbE)) {
-  //       this.counter + 0;
-  //     }
-  //     else if (line[i].endsWith("e")) {
-  //       this.counter--;
-  //     }
-  //   }
-  // }
+  endsWithE(line) {
+    for (let i = 0; i < line.length; i++) {
+      if (this.myLetters.dumbE.includes(line[i])) {
+        this.counter + 0;
+      }
+      else if (line[i].endsWith("e")) {
+        this.counter--;
+      }
+    }
+  }
 
   resetCounter() {
     this.counter = 0;

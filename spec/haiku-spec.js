@@ -20,14 +20,14 @@ describe('Haiku', function() {
 
   });
 
-  // it('should count down 1 for trailing E on word', function() {
-  //   let haiku = new Haiku("hello there", "what is up", "not a haiku");
-  //   haiku.endsWithE(haiku.line1);
-  //   // haiku.vowelCounter2();
-  //   // haiku.vowelCounter3();
-  //   expect(haiku.countLine1).toEqual(-1);
-  //   // expect(haiku.countLine2).toEqual(3);
-  //   // expect(haiku.countLine3).toEqual(5);
-  //
-  // });
+  it('should count down 1 for trailing E on word', function() {
+    let haiku = new Haiku("hello there", "what is up", "not a haiku");
+    haiku.endsWithE(haiku.line1);
+    // haiku.vowelCounter2();
+    // haiku.vowelCounter3();
+    expect(haiku.counter).toEqual(-1);
+    // expect(haiku.countLine2).toEqual(3);
+    // expect(haiku.countLine3).toEqual(5);
+
+  });
 });
