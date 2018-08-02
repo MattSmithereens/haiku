@@ -7,6 +7,7 @@ export class Haiku {
       vowels: ["a", "e", "i", "o", "u"],
       esPrefixes: ["c", "s", "x", "g", "h", "z"],
       pthPrefixes: ["c", "s", "x", "g", "h", "t"],
+      edPrefixes: ["t", "d"],
       dumbE: ["acme", "acne", "ante", "Boise", "bebe", "catastrophe", "hyperbole", "maybe", "posse", "adobe", "apache", "karate", "peyote", "reveille", "sesame", "shoshone", "syncope", "vigilante"]
     }
     this.counter = 0;
@@ -45,14 +46,14 @@ export class Haiku {
     }
   }
 
-  // endsWithES(line) {
-  //   for (let i = 0; i < line.length; i++) {
-  //     let prefix = line[i][line[i].length - 3];
-  //     if ((line[i].endsWith("es")) && (!this.myLetters.esPrefixes.includes(prefix)))  {
-  //       this.counter--;
-  //     }
-  //   }
-  // }
+  endsWithED(line) {
+    for (let i = 0; i < line.length; i++) {
+      let prefix = line[i][line[i].length - 3];
+      if ((line[i].endsWith("ed")) && (!this.myLetters.edPrefixes.includes(prefix)))  {
+        this.counter--;
+      }
+    }
+  }
 
   endsWithY(line) {
     for (let i = 0; i < line.length; i++) {

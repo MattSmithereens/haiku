@@ -38,7 +38,7 @@ describe('Haiku', function() {
 
   });
 
-  it('should decrement counter by 1 if the word ends in es not preceded by x, c, or s', function() {
+  it('should decrement counter by 1 if the word ends in es not preceded by esPrefixes', function() {
     let haiku = new Haiku("lines", " ", " ");
     haiku.vowelCounter(haiku.line1);
     haiku.endsWithES(haiku.line1);
@@ -66,6 +66,14 @@ describe('Haiku', function() {
     let haiku = new Haiku("eau", " ", " ");
     haiku.adjacentVowels(haiku.line1);
     expect(haiku.counter).toEqual(-2);
+
+  });
+
+  it('should decrement counter by 1 if the word ends in ed not preceded by edPrefixes', function() {
+    let haiku = new Haiku("phrased", " ", " ");
+    haiku.vowelCounter(haiku.line1);
+    haiku.endsWithED(haiku.line1);
+    expect(haiku.counter).toEqual(1);
 
   });
 
