@@ -64,6 +64,14 @@ export class Haiku {
     }
   }
 
+  endWithSM(line) {
+    for (let i = 0; i < line.length; i++) {
+      if (line[i].endsWith("sm")) {
+        this.counter++;
+      }
+    }
+  }
+
   adjacentVowels(line) {
     for (let i = 0; i < line.length; i++) {
       for (let j = 0; j < line[i].length; ) {
@@ -118,6 +126,7 @@ export class Haiku {
     this.endsWithES(line);
     this.endsWithED(line);
     this.endsWithY(line);
+    this.endWithSM(line);
     this.adjacentVowels(line);
     this.yVowel(line);
     this.noVowels(line);
