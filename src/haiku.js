@@ -112,6 +112,17 @@ export class Haiku {
     }
   }
 
+  checkLine(line) {
+    this.vowelCounter(line);
+    this.endsWithE(line);
+    this.endsWithES(line);
+    this.endsWithED(line);
+    this.endsWithY(line);
+    this.adjacentVowels(line);
+    this.yVowel(line);
+    this.noVowels(line);
+  }
+
   resetCounter() {
     this.counter = 0;
   }

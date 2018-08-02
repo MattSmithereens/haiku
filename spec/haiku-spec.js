@@ -93,4 +93,13 @@ describe('Haiku', function() {
 
   });
 
+  it('should determine the number of syllables in a given line', function() {
+    let haiku = new Haiku("Ryan hates haikus", "Javascript project torture", "happy hour soon");
+    haiku.checkLine(haiku.line1);
+    haiku.checkLine(haiku.line2);
+    haiku.checkLine(haiku.line3);
+    expect(haiku.counter).toEqual(17);
+
+  });
+
 });
