@@ -77,4 +77,12 @@ describe('Haiku', function() {
 
   });
 
+  it('should not allow a 0 counter value for a word regardless of verb configuration', function() {
+    let haiku = new Haiku("hey you brrr shh", " ", " ");
+    haiku.vowelCounter(haiku.line1);
+    haiku.noVowels(haiku.line1);
+    expect(haiku.counter).toEqual(5);
+
+  });
+
 });
