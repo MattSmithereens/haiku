@@ -24,7 +24,7 @@ describe('Haiku', function() {
   });
 
   it('should decrement if adjacent vowels are detected', function() {
-    let haiku = new Haiku("beautiful", " ", " ");
+    let haiku = new Haiku("thou", " ", " ");
     haiku.adjacentVowels(haiku.line1);
     expect(haiku.counter).toEqual(-1);
 
@@ -59,6 +59,13 @@ describe('Haiku', function() {
     haiku.vowelCounter(haiku.line1);
     haiku.adjacentVowels(haiku.line1);
     expect(haiku.counter).toEqual(3);
+
+  });
+
+  it('should decrement counter by 2 if the word contains eau', function() {
+    let haiku = new Haiku("eau", " ", " ");
+    haiku.adjacentVowels(haiku.line1);
+    expect(haiku.counter).toEqual(-2);
 
   });
 

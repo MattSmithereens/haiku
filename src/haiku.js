@@ -66,11 +66,15 @@ export class Haiku {
   adjacentVowels(line) {
     for (let i = 0; i < line.length; i++) {
       for (let j = 0; j < line[i].length; ) {
-        if ((line[i][j] === "i") && (line[i][j+1] === "o") && (line[i][j+2] === "u") && (this.myLetters.pthPrefixes.includes(line[i][j-1]))) {
-          this.counter -= 2;
+        if ((line[i][j] === "e") && (line[i][j+1] === "a") && (line[i][j+2] === "u")) {
+          this.counter-=2;
           j+=2;
         }
-        if ((this.myLetters.vowels.includes(line[i][j])) && (this.myLetters.vowels.includes(line[i][j+1])) && (this.myLetters.vowels.includes(line[i][j+2]))) {
+        else if ((line[i][j] === "i") && (line[i][j+1] === "o") && (line[i][j+2] === "u") && (this.myLetters.pthPrefixes.includes(line[i][j-1]))) {
+          this.counter-=2;
+          j+=2;
+        }
+        else if ((this.myLetters.vowels.includes(line[i][j])) && (this.myLetters.vowels.includes(line[i][j+1])) && (this.myLetters.vowels.includes(line[i][j+2]))) {
           this.counter--;
           j+=2;
         }
