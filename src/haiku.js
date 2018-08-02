@@ -4,8 +4,8 @@ export class Haiku {
     this.line2 = line2.replace(/[.,#!$%&'?;:{}=\-_`~()]/g,"").toLowerCase().split(" ");
     this.line3 = line3.replace(/[.,#!$%&'?;:{}=\-_`~()]/g,"").toLowerCase().split(" ");
     this.myLetters = {
-      y: "y",
       vowels: ["a", "e", "i", "o", "u"],
+      esPrefixes: ["c", "s", "x", "g", "h", "z"],
       dumbE: ["acme", "acne", "ante", "Boise", "bebe", "catastrophe", "hyperbole", "maybe", "posse", "adobe", "apache", "karate", "peyote", "reveille", "sesame", "shoshone", "syncope", "vigilante"]
     }
     this.counter = 0;
@@ -26,8 +26,38 @@ export class Haiku {
       if (this.myLetters.dumbE.includes(line[i])) {
         this.counter + 0;
       }
+      else if (line[i].endsWith("e") && this.counter === 1) {
+        this.counter + 0;
+      }
       else if (line[i].endsWith("e")) {
         this.counter--;
+      }
+    }
+  }
+
+  endsWithES(line) {
+    for (let i = 0; i < line.length; i++) {
+      let prefix = line[i][line[i].length - 3];
+      if ((line[i].endsWith("es")) && (!this.myLetters.esPrefixes.includes(prefix)))  {
+        this.counter--;
+      }
+    }
+  }
+
+  // endsWithES(line) {
+  //   for (let i = 0; i < line.length; i++) {
+  //     let prefix = line[i][line[i].length - 3];
+  //     if ((line[i].endsWith("es")) && (!this.myLetters.esPrefixes.includes(prefix)))  {
+  //       this.counter--;
+  //     }
+  //   }
+  // }
+
+  endsWithY(line) {
+    for (let i = 0; i < line.length; i++) {
+      let prefix = line[i][line[i].length - 2];
+      if ((line[i].endsWith("y")) && (!this.myLetters.vowels.includes(prefix)))  {
+        this.counter++;
       }
     }
   }
