@@ -54,4 +54,12 @@ describe('Haiku', function() {
 
   });
 
+  it('should decrement counter by 2 if the word contains iou preceded by a soft consonant', function() {
+    let haiku = new Haiku("ambitious", " ", " ");
+    haiku.vowelCounter(haiku.line1);
+    haiku.adjacentVowels(haiku.line1);
+    expect(haiku.counter).toEqual(3);
+
+  });
+
 });

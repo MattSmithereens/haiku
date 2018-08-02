@@ -6,6 +6,7 @@ export class Haiku {
     this.myLetters = {
       vowels: ["a", "e", "i", "o", "u"],
       esPrefixes: ["c", "s", "x", "g", "h", "z"],
+      pthPrefixes: ["c", "s", "x", "g", "h", "t"],
       dumbE: ["acme", "acne", "ante", "Boise", "bebe", "catastrophe", "hyperbole", "maybe", "posse", "adobe", "apache", "karate", "peyote", "reveille", "sesame", "shoshone", "syncope", "vigilante"]
     }
     this.counter = 0;
@@ -65,6 +66,10 @@ export class Haiku {
   adjacentVowels(line) {
     for (let i = 0; i < line.length; i++) {
       for (let j = 0; j < line[i].length; ) {
+        if ((line[i][j] === "i") && (line[i][j+1] === "o") && (line[i][j+2] === "u") && (this.myLetters.pthPrefixes.includes(line[i][j-1]))) {
+          this.counter -= 2;
+          j+=2;
+        }
         if ((this.myLetters.vowels.includes(line[i][j])) && (this.myLetters.vowels.includes(line[i][j+1])) && (this.myLetters.vowels.includes(line[i][j+2]))) {
           this.counter--;
           j+=2;
