@@ -89,24 +89,14 @@ export class Haiku {
     }
   }
 
-  // yVowel(line) {
-  //   for (let i = 0; i < line.length; i++) {
-  //     let prefix = line[i][line[i].length - 2];
-  //     if ((line[i].includes("y")) && (!line[i][j+1] === vowels))  {
-  //       this.counter++;
-  //     }
-  //   }
-  // }
-
-  // yConsonnant(line)  {
-  //   for (let i = 0; i < line.length; i++) {
-  //     for (let j = 0; j < line[i].length; ) {
-  //       let prefix = line[i][line[i].length - 2];
-  //       if ((line[i][j] === "y") && (this.myLetters.vowels.includes(line[i][j+1])))  {
-  //         this.counter+0;
-  //       }
-  //     }
-  //   }
+  yVowel(line) {
+    for (let i = 0; i < line.length; i++) {
+      for(let j = 0; j < line[i].length; j++)
+      if (!line[i].startsWith("y") && (line[i][j] === "y") && (!this.myLetters.vowels.includes(line[i][j - 1])))  {
+        this.counter++;
+      }
+    }
+  }
 
   noVowels(line) {
     for (let i = 0; i < line.length; i++) {

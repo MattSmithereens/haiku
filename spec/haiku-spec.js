@@ -77,11 +77,19 @@ describe('Haiku', function() {
 
   });
 
-  it('should not allow a 0 counter value for a word regardless of verb configuration', function() {
+  it('should increase counter by 1 if a word is found to contain no vowels', function() {
     let haiku = new Haiku("hey you brrr shh", " ", " ");
     haiku.vowelCounter(haiku.line1);
     haiku.noVowels(haiku.line1);
     expect(haiku.counter).toEqual(5);
+
+  });
+
+  it('should treat y as a vowel if proceeded by a consonant', function() {
+    let haiku = new Haiku("byway", " ", " ");
+    haiku.vowelCounter(haiku.line1);
+    haiku.yVowel(haiku.line1);
+    expect(haiku.counter).toEqual(2);
 
   });
 
