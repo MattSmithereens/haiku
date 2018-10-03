@@ -8,6 +8,8 @@
 
 This app was built entirely using TDD, thus there's no front end.  The aim of this app is to determine the number of syllables in lines of a given poem and thus determine whether said poem falls under the classification of a haiku which is determined as containing 3 lines with syllable counts of 5/7/5.  Given the complexity of the English language and how much English borrows from other languages and thus doesn't follow a consistent set of pronunciation rules, this app accounts for the vast majority of words commonly used in English.
 
+I'd like to return to this project sometime in the future and completely flesh it out.
+
 ## Setup on OSX
 
 * Install Node.js
